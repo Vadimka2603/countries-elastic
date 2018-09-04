@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  database: countries-elastick
+  pool: 5
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: countries-elastick-test
