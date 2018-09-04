@@ -3,5 +3,5 @@ class Country < ApplicationRecord
 
   has_many :cities, dependent: :destroy
 
-  update_index 'country#country', :self, urgent: true
+  # update_index 'country#country', :self, urgent: true
 end
