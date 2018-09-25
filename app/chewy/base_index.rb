@@ -3,23 +3,31 @@ class BaseIndex < Chewy::Index
     filter: {
       nGram_filter: {
         type: 'nGram',
-        min_gram: 2,
+        min_gram: 1,
         max_gram: 50,
         token_chars: %w[letter digit punctuation symbol]
       }
-    #   ru_RU: {
-    #     type: 'hunspell',
-    #     locale: 'ru_RU',
-    #     dedup: true
-    #   }
-  },
+      # hunspell_filter: {
+      #   type: 'hunspell',
+      #   locale: 'ru_Ru',
+      #   dedup: true
+      # }
+      # length_filter: {
+      #   type: 'length',
+      #   min: 7
+      # },
+      # my_stop_filter: {
+      #   type: 'stop',
+      #   stopwords: 'северная'
+      # }# },
+      # synonym_filter: {
+      #   type: 'synonym',
+      #   lenient: true,
+      #   synonyms: ["узбекистан, китай => восточные"]
+      # }
+    },
     analyzer: {
       nGram_analyzer: {
-        type: 'custom',
-        tokenizer: 'whitespace',
-        filter: %w[lowercase asciifolding nGram_filter]
-      },
-      whitespace_analyzer: {
         type: 'custom',
         tokenizer: 'whitespace',
         filter: %w[lowercase asciifolding nGram_filter]
@@ -28,7 +36,4 @@ class BaseIndex < Chewy::Index
   }
 end
 
-# english_morphology
-# russian_morphology
-
-# https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-ngram-tokenizer.html
+# reverse
